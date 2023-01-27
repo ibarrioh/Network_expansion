@@ -10,6 +10,7 @@ jaccard.IB<-function(set1,set2){
 
 setwd("/tables_expansion")
 
+####This file is compressed using 7z (jaccard_KS.7z) and should be decompressed prior to run
 jaccard.KS=readRDS("/tables_expansion/jaccard_KS.rds")
 geneList=readRDS("/tables_expansion/genesList_KS.rds")
 
