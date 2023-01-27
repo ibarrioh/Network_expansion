@@ -3,7 +3,7 @@
 
 library(igraph)
 
-###FUNCIONES Modificando ASTRO para que no se lie con la ausencia de GAD
+###Functions to run the network expansion method and the scoring of the modules 
 
 anotation<-function(node.list,genes,disease){
   
@@ -266,7 +266,7 @@ astro<-function(node.gwas,edge.string,all.nodes){
 
 #########################################################################################################################
 #########################################################################################################################
-
+####Load the requested files 
 
 all.gene.gwas=	readRDS("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score050_270120/all.gene.gwas_filter_GP.rds")
 all.node.gwas=	readRDS("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score020_161219/all_node_gwas_FILTER.rds")
