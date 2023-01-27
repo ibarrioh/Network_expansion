@@ -268,12 +268,9 @@ astro<-function(node.gwas,edge.string,all.nodes){
 #########################################################################################################################
 ####Load the requested files 
 
-all.gene.gwas=	readRDS("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score050_270120/all.gene.gwas_filter_GP.rds")
-all.node.gwas=	readRDS("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score020_161219/all_node_gwas_FILTER.rds")
-string=		readRDS("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score020_161219/Combined_STRINGv11_OTAR281119_FILTER.rds")
-
-setwd("/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score050_270120")
-
+all.gene.gwas=	readRDS("/tables_expansion/all.gene.gwas_filter_GP.rds")
+all.node.gwas=	readRDS("/tables_expansion/all_node_gwas_FILTER.rds")
+string=		readRDS("/tables_expansion/Combined_STRINGv11_OTAR281119_FILTER.rds")
 
 ########
 
@@ -283,12 +280,11 @@ temp=temp[!duplicated(temp),]
 dis=table(temp[,"disease"])
 dis=dis[dis>1]
 
-
-##Argumento para loopear
+##Loop, cluster
 
 i <- as.numeric(commandArgs(trailingOnly = TRUE))
 
-########Primero el metodo Astro hasta el final
+########Astro method for network expansion
 
 
 node.gwas=anotation(all.node.gwas,all.gene.gwas,disease=names(dis[i]))
@@ -297,7 +293,7 @@ temp.nodes=astro(node.gwas,as.data.frame(string),all.nodes=T)
 
 
 ############################################################################################
-####Calculo de modulos significativos
+####Significant modules
 
 
 node=cbind(temp.nodes,names(dis[i]))
@@ -379,7 +375,7 @@ if(length(clusters)>5){
 
 
 
-path=paste(	"/nfs/leia/research/beltrao/ibarrioh/OTAR44/genetic_portal/score050_270120/RDS_astro/",
+path=paste(	"/tables_expansion/RDS_astro/",
             "nodes.",
             names(dis[i]),
             ".rds",	sep="")
