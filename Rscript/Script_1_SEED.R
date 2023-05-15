@@ -268,9 +268,9 @@ astro<-function(node.gwas,edge.string,all.nodes){
 #########################################################################################################################
 ####Load the requested files 
 
-all.gene.gwas=	readRDS("/tables_expansion/all.gene.gwas_filter_GP.rds")
-all.node.gwas=	readRDS("/tables_expansion/all_node_gwas_FILTER.rds")
-string=		readRDS("/tables_expansion/Combined_STRINGv11_OTAR281119_FILTER.rds")
+all.gene.gwas=	readRDS("/tables_expansion/all.gene.gwas_filter_GP.rds") ##Starting signal, genes associated to disease
+all.node.gwas=	readRDS("/tables_expansion/all_node_gwas_FILTER.rds") ##Node annotation file, list of all nodes in the interactome with gene names
+string=		readRDS("/tables_expansion/Combined_STRINGv11_OTAR281119_FILTER.rds") ##Combined interactome (STRING + OpenTargets interactome)
 
 ########
 
